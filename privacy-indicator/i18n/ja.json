@@ -1,7 +1,21 @@
 {
-  "tooltip": {
-    "cam-on": "カメラ: {apps}",
-    "mic-on": "マイク: {apps}",
-    "screen-on": "画面共有: {apps}"
-  }
+    "settings": {
+        "hideInactive": {
+            "label": "非アクティブ状態を非表示",
+            "desc": "マイク・カメラ・画面共有のアイコンを、非アクティブなときは非表示にします。"
+        },
+        "iconSpacing": {
+            "label": "アイコン間隔",
+            "desc": "アイコン同士の間隔を設定します。"
+        },
+        "removeMargins": {
+            "label": "余白を削除",
+            "desc": "ウィジェットの外側の余白をすべて削除します。"
+        }
+    },
+    "tooltip": {
+        "cam-on": "カメラ: {apps}",
+        "mic-on": "マイク: {apps}",
+        "screen-on": "画面共有: {apps}"
+    }
 }

@@ -1,7 +1,21 @@
 {
-  "tooltip": {
-    "cam-on": "摄像头: {apps}",
-    "mic-on": "麦克风: {apps}",
-    "screen-on": "屏幕共享: {apps}"
-  }
+    "settings": {
+        "hideInactive": {
+            "label": "隐藏非活动状态",
+            "desc": "在麦克风、摄像头和屏幕图标处于非活动状态时将其隐藏。"
+        },
+        "iconSpacing": {
+            "label": "图标间距",
+            "desc": "设置图标之间的间距。"
+        },
+        "removeMargins": {
+            "label": "移除边距",
+            "desc": "移除小部件所有外部边距。"
+        }
+    },
+    "tooltip": {
+        "cam-on": "摄像头: {apps}",
+        "mic-on": "麦克风: {apps}",
+        "screen-on": "屏幕共享: {apps}"
+    }
 }

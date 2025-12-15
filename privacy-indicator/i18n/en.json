@@ -1,7 +1,21 @@
 {
-  "tooltip": {
-    "cam-on": "Camera: {apps}",
-    "mic-on": "Microphone: {apps}",
-    "screen-on": "Screen sharing: {apps}"
-  }
+    "settings": {
+        "hideInactive": {
+            "label": "Hide inactive states",
+            "desc": "Hide microphone, camera, and screen icons when there are inactive."
+        },
+        "iconSpacing": {
+            "label": "Icon spacing",
+            "desc": "Set the spacing between the icons."
+        },
+        "removeMargins": {
+            "label": "Remove margins",
+            "desc": "Remove all outer margins of the widget."
+        }
+    },
+    "tooltip": {
+        "cam-on": "Camera: {apps}",
+        "mic-on": "Microphone: {apps}",
+        "screen-on": "Screen sharing: {apps}"
+    }
 }

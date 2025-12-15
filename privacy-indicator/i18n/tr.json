@@ -1,7 +1,21 @@
 {
-  "tooltip": {
-    "cam-on": "Kamera: {apps}",
-    "mic-on": "Mikrofon: {apps}",
-    "screen-on": "Ekran paylaşımı: {apps}"
-  }
+    "settings": {
+        "hideInactive": {
+            "label": "Pasif durumları gizle",
+            "desc": "Mikrofon, kamera ve ekran simgelerini pasif olduklarında gizle."
+        },
+        "iconSpacing": {
+            "label": "Simge aralığı",
+            "desc": "Simgeler arasındaki boşluğu ayarla."
+        },
+        "removeMargins": {
+            "label": "Kenarlıkları kaldır",
+            "desc": "Widget’ın tüm dış kenar boşluklarını kaldırır."
+        }
+    },
+    "tooltip": {
+        "cam-on": "Kamera: {apps}",
+        "mic-on": "Mikrofon: {apps}",
+        "screen-on": "Ekran paylaşımı: {apps}"
+    }
 }
