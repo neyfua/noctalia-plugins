@@ -27,14 +27,28 @@ Item {
   property int totalWidth: friendsWidth + gapSize + mainWidth + gapSize + chatWidth
   property int centerOffset: (screenWidth - totalWidth) / 2
 
+  // Ensure Logger exists (fallback to console if not provided)
+  function ensureLogger() {
+    if (typeof Logger === 'undefined') {
+      Logger = {
+        d: function(m) { console.log(m); },
+        i: function(m) { if (console.info) console.info(m); else console.log(m); },
+        w: function(m) { if (console.warn) console.warn(m); else console.log("WARN: " + m); },
+        e: function(m) { if (console.error) console.error(m); else console.log("ERROR: " + m); }
+      }
+    }
+  }
+
   onPluginApiChanged: {
+    ensureLogger();
     if (pluginApi) {
-      console.log("SteamOverlay:", pluginApi?.tr("main.plugin_loaded"));
+      Logger.i("SteamOverlay: " + (pluginApi?.tr("main.plugin_loaded") || "Plugin loaded"));
       checkSteam.running = true;
     }
   }
 
   Component.onCompleted: {
+    ensureLogger();
     if (pluginApi) {
       checkSteam.running = true;
     }
@@ -60,7 +74,7 @@ Item {
     running: false
 
     onExited: (exitCode, exitStatus) => {
-      console.log("SteamOverlay:", pluginApi?.tr("main.steam_launched"));
+      Logger.i("SteamOverlay: " + (pluginApi?.tr("main.steam_launched") || "Steam launched"));
     }
   }
 
@@ -79,7 +93,7 @@ Item {
           var msg = pluginApi?.tr("main.resolution_detected")
             .replace("{width}", screenWidth)
             .replace("{height}", screenHeight);
-          console.log("SteamOverlay:", msg);
+          Logger.i("SteamOverlay: " + msg);
         }
       }
     }
@@ -103,7 +117,7 @@ Item {
       if (exitCode === 0 && lines.length > 0) {
         steamWindows = lines.map(line => JSON.parse(line));
         var msg = pluginApi?.tr("main.windows_found").replace("{count}", steamWindows.length);
-        console.log("SteamOverlay:", msg);
+        Logger.i("SteamOverlay: " + msg);
         lines = [];
       }
     }
@@ -117,7 +131,7 @@ Item {
 
     onExited: (exitCode, exitStatus) => {
       var msg = pluginApi?.tr("main.windows_moved").replace("{code}", exitCode);
-      console.log("SteamOverlay:", msg);
+      Logger.i("SteamOverlay: " + msg);
       if (exitCode === 0) {
         // Show the special workspace
         showWorkspace.running = true;
@@ -132,7 +146,7 @@ Item {
     running: false
 
     onExited: (exitCode, exitStatus) => {
-      console.log("SteamOverlay:", pluginApi?.tr("main.workspace_toggled"));
+      Logger.i("SteamOverlay: " + (pluginApi?.tr("main.workspace_toggled") || "Workspace toggled"));
     }
   }
 
@@ -149,10 +163,10 @@ Item {
   }
 
   function toggleOverlay() {
-    console.log("SteamOverlay:", pluginApi?.tr("main.toggle_called"));
+    Logger.i("SteamOverlay: " + (pluginApi?.tr("main.toggle_called") || "Toggle called"));
 
     if (!steamRunning) {
-      console.log("SteamOverlay:", pluginApi?.tr("main.launching_steam"));
+      Logger.i("SteamOverlay: " + (pluginApi?.tr("main.launching_steam") || "Launching Steam"));
       launchSteam.running = true;
       return;
     }
@@ -170,7 +184,7 @@ Item {
         if (steamWindows.length > 0) {
           moveWindowsToOverlay();
         } else {
-          console.log("SteamOverlay:", pluginApi?.tr("main.no_windows_found"));
+          Logger.w("SteamOverlay: " + (pluginApi?.tr("main.no_windows_found") || "No Steam windows found"));
         }
       });
 
@@ -223,7 +237,7 @@ Item {
     target: "plugin:hyprland-steam-overlay"
 
     function toggle() {
-      console.log("SteamOverlay:", pluginApi?.tr("main.ipc_received"));
+      Logger.i("SteamOverlay: " + (pluginApi?.tr("main.ipc_received") || "IPC toggle received"));
       root.toggleOverlay();
     }
   }
