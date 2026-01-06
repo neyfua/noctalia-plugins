@@ -54,8 +54,13 @@
       "repository": "https://github.com/linuxmobile/github-feed-noctalia",
       "minNoctaliaVersion": "3.6.0",
       "license": "MIT",
-      "tags": [],
-      "lastUpdated": "2026-01-06T02:03:46-03:00"
+      "tags": [
+        "Bar",
+        "Panel",
+        "Development",
+        "Network"
+      ],
+      "lastUpdated": "2026-01-06T12:08:53-03:00"
     },
     {
       "id": "hello-world",
