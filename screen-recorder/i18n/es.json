@@ -1,0 +1,43 @@
+{
+  "name": "Grabadora de Pantalla",
+  "description": "Grabación de pantalla acelerada por hardware con configuración personalizable de video y audio",
+  "settings": {
+    "title": "Configuración de Grabadora de Pantalla",
+    "general": {
+      "title": "General",
+      "output-folder": "Carpeta de salida",
+      "output-folder-description": "Carpeta donde se guardarán las grabaciones de pantalla",
+      "show-cursor": "Mostrar cursor",
+      "show-cursor-description": "Grabar el cursor del ratón en el video"
+    },
+    "video": {
+      "title": "Configuración de Video",
+      "source": "Fuente de video",
+      "source-desc": "Se recomienda Portal, si obtiene artefactos intente Pantalla",
+      "frame-rate": "Tasa de fotogramas",
+      "frame-rate-desc": "Tasa de fotogramas objetivo para grabaciones de pantalla",
+      "quality": "Calidad de video",
+      "quality-desc": "Mayor calidad resulta en archivos más grandes",
+      "codec": "Códec de video",
+      "codec-desc": "h264 es el códec más común",
+      "color-range": "Rango de color",
+      "color-range-desc": "Limitado se recomienda para mejor compatibilidad"
+    },
+    "audio": {
+      "title": "Configuración de Audio",
+      "source": "Fuente de audio",
+      "source-desc": "Fuente de audio para capturar durante la grabación",
+      "codec": "Códec de audio",
+      "codec-desc": "Opus se recomienda para mejor rendimiento y tamaño de audio más pequeño"
+    },
+    "filename_pattern": {
+      "label": "Patrón de nombre de archivo",
+      "description": "Patrón de nombre usando códigos de fecha/hora (ej. recording_yyyyMMdd_HHmmss)"
+    }
+  },
+  "tooltips": {
+    "start-recording": "Grabadora de pantalla (iniciar grabación)",
+    "stop-recording": "Grabadora de pantalla (detener grabación)",
+    "not-installed": "Grabadora de pantalla (no instalada)"
+  }
+}

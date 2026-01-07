@@ -35,6 +35,7 @@ Every plugin must include a `manifest.json` file with the following fields:
   "license": "MIT",
   "repository": "https://github.com/noctalia-dev/noctalia-plugins",
   "description": "Brief plugin description",
+  "tags": ["Bar", "Panel"],
   "entryPoints": {
     "main": "Main.qml",
     "barWidget": "BarWidget.qml",
@@ -49,6 +50,33 @@ Every plugin must include a `manifest.json` file with the following fields:
   }
 }
 ```
+
+### Tags
+
+Plugins can include tags to help users find them. The following tags are currently in use:
+
+**Widget Type Tags** (based on entry points):
+| Tag | Description |
+|-----|-------------|
+| `Bar` | Adds a widget to the bar |
+| `Desktop` | Adds a widget to the desktop |
+| `Panel` | Has a panel |
+| `Launcher` | Provides launcher results |
+
+**Functional Tags** (what the plugin does):
+| Tag | Description |
+|-----|-------------|
+| `Productivity` | Notes, todos, task management |
+| `System` | System info, updates, hardware control |
+| `Audio` | Audio visualization, media |
+| `Network` | Network monitoring |
+| `Privacy` | Privacy/security indicators |
+| `Development` | Developer tools |
+| `Fun` | Entertainment, decorative |
+| `Gaming` | Gaming-related tools |
+| `Indicator` | Status indicators |
+
+New tags can be added on a case-by-case basis. If your plugin doesn't fit the existing tags, feel free to propose a new one in your pull request.
 
 ## Adding a Plugin
 
@@ -81,7 +109,18 @@ See [.github/workflows/README.md](.github/workflows/README.md) for technical det
 
 ## Available Plugins
 
-Check [registry.json](registry.json) for the complete list of available plugins.
+Check [registry.json](registry.json) or the [plugin overview](https://noctalia.dev/plugins/) on the Noctalia homepage for the complete list of available plugins.
+
+## Custom Repositories
+
+In addition to the official plugin registry, Noctalia Shell supports loading plugins from custom repositories.
+
+This allows the community to share and use plugins outside the official registry.
+
+| Repository        | Link                                                                     |
+|-------------------|--------------------------------------------------------------------------|
+| ThatOneCalculator | [GitHub](https://github.com/ThatOneCalculator/personal-noctalia-plugins) |
+| bennypowers | [GitHub](https://github.com/bennypowers/noctalia-plugins) |
 
 ## Development
 

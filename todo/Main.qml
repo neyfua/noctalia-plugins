@@ -19,6 +19,12 @@ Item {
   IpcHandler {
     target: "plugin:todo"
 
+    function togglePanel() {
+      pluginApi.withCurrentScreen(screen => {
+        pluginApi.togglePanel(screen);
+      });
+    }
+
     function addTodo(text: string) {
       if (pluginApi && text) {
         var todos = pluginApi.pluginSettings.todos || [];

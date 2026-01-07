@@ -35,7 +35,7 @@ Item {
   Rectangle {
     id: panelContainer
     anchors.fill: parent
-    color: Color.transparent
+    color: "transparent"
 
     ColumnLayout {
       anchors {

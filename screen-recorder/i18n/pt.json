@@ -1,0 +1,45 @@
+{
+  "name": "Gravador de Tela",
+  "description": "Gravação de tela acelerada por hardware com configurações personalizáveis de vídeo e áudio",
+  "settings": {
+    "title": "Configurações do Gravador de Tela",
+    "general": {
+      "title": "Geral",
+      "output-folder": "Pasta de saída",
+      "output-folder-description": "Pasta onde as gravações de tela serão salvas",
+      "show-cursor": "Mostrar cursor",
+      "show-cursor-description": "Gravar o cursor do mouse no vídeo",
+      "copy-to-clipboard": "Copiar para área de transferência",
+      "copy-to-clipboard-desc": "Copiar o arquivo para a área de transferência após concluir a gravação"
+    },
+    "video": {
+      "title": "Configurações de Vídeo",
+      "source": "Fonte de vídeo",
+      "source-desc": "Portal é recomendado, se obtiver artefatos tente Tela",
+      "frame-rate": "Taxa de quadros",
+      "frame-rate-desc": "Taxa de quadros alvo para gravações de tela",
+      "quality": "Qualidade de vídeo",
+      "quality-desc": "Maior qualidade resulta em arquivos maiores",
+      "codec": "Codec de vídeo",
+      "codec-desc": "h264 é o codec mais comum",
+      "color-range": "Faixa de cores",
+      "color-range-desc": "Limitado é recomendado para melhor compatibilidade"
+    },
+    "audio": {
+      "title": "Configurações de Áudio",
+      "source": "Fonte de áudio",
+      "source-desc": "Fonte de áudio para capturar durante a gravação",
+      "codec": "Codec de áudio",
+      "codec-desc": "Opus é recomendado para melhor desempenho e menor tamanho de áudio"
+    },
+    "filename_pattern": {
+      "label": "Padrão de nome de arquivo",
+      "description": "Padrão de nome usando códigos de data/hora (ex. recording_yyyyMMdd_HHmmss)"
+    }
+  },
+  "tooltips": {
+    "start-recording": "Gravador de tela (iniciar gravação)",
+    "stop-recording": "Gravador de tela (parar gravação)",
+    "not-installed": "Gravador de tela (não instalado)"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Schermrecorder",
+  "description": "Hardware-versnelde schermopname met aanpasbare video- en audio-instellingen",
+  "settings": {
+    "title": "Schermrecorder Instellingen",
+    "general": {
+      "title": "Algemeen",
+      "output-folder": "Uitvoermap",
+      "output-folder-description": "Map waar schermopnames worden opgeslagen",
+      "show-cursor": "Cursor tonen",
+      "show-cursor-description": "Muiscursor in de video opnemen",
+      "copy-to-clipboard": "Kopiëren naar klembord",
+      "copy-to-clipboard-desc": "Bestand naar klembord kopiëren na voltooiing van de opname"
+    },
+    "video": {
+      "title": "Video-instellingen",
+      "source": "Videobron",
+      "source-desc": "Portal wordt aanbevolen, probeer Scherm als u artefacten krijgt",
+      "frame-rate": "Framesnelheid",
+      "frame-rate-desc": "Doelframesnelheid voor schermopnames",
+      "quality": "Videokwaliteit",
+      "quality-desc": "Hogere kwaliteit resulteert in grotere bestanden",
+      "codec": "Video-codec",
+      "codec-desc": "h264 is de meest voorkomende codec",
+      "color-range": "Kleurbereik",
+      "color-range-desc": "Beperkt wordt aanbevolen voor betere compatibiliteit"
+    },
+    "audio": {
+      "title": "Audio-instellingen",
+      "source": "Audiobron",
+      "source-desc": "Audiobron om tijdens opname vast te leggen",
+      "codec": "Audio-codec",
+      "codec-desc": "Opus wordt aanbevolen voor beste prestaties en kleinste audiogrootte"
+    },
+    "filename_pattern": {
+      "label": "Bestandsnaampatroon",
+      "description": "Bestandsnaampatroon met datum/tijd codes (bijv. recording_yyyyMMdd_HHmmss)"
+    }
+  },
+  "tooltips": {
+    "start-recording": "Schermrecorder (opname starten)",
+    "stop-recording": "Schermrecorder (opname stoppen)",
+    "not-installed": "Schermrecorder (niet geïnstalleerd)"
+  }
+}

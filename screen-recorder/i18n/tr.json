@@ -1,0 +1,45 @@
+{
+  "name": "Ekran Kaydedici",
+  "description": "Özelleştirilebilir video ve ses ayarlarıyla donanım hızlandırmalı ekran kaydı",
+  "settings": {
+    "title": "Ekran Kaydedici Ayarları",
+    "general": {
+      "title": "Genel",
+      "output-folder": "Çıktı klasörü",
+      "output-folder-description": "Ekran kayıtlarının kaydedileceği klasör",
+      "show-cursor": "İmleci göster",
+      "show-cursor-description": "Videoda fare imlecini kaydet",
+      "copy-to-clipboard": "Panoya kopyala",
+      "copy-to-clipboard-desc": "Kayıt tamamlandıktan sonra dosyayı panoya kopyala"
+    },
+    "video": {
+      "title": "Video Ayarları",
+      "source": "Video kaynağı",
+      "source-desc": "Portal önerilir, artefaktlar alırsanız Ekran'ı deneyin",
+      "frame-rate": "Kare hızı",
+      "frame-rate-desc": "Ekran kayıtları için hedef kare hızı",
+      "quality": "Video kalitesi",
+      "quality-desc": "Daha yüksek kalite daha büyük dosya boyutlarına yol açar",
+      "codec": "Video codec",
+      "codec-desc": "h264 en yaygın codec'tir",
+      "color-range": "Renk aralığı",
+      "color-range-desc": "Daha iyi uyumluluk için Sınırlı önerilir"
+    },
+    "audio": {
+      "title": "Ses Ayarları",
+      "source": "Ses kaynağı",
+      "source-desc": "Kayıt sırasında yakalanacak ses kaynağı",
+      "codec": "Ses codec",
+      "codec-desc": "En iyi performans ve en küçük ses boyutu için Opus önerilir"
+    },
+    "filename_pattern": {
+      "label": "Dosya adı şablonu",
+      "description": "Tarih/saat kodları kullanan dosya adı şablonu (örn. recording_yyyyMMdd_HHmmss)"
+    }
+  },
+  "tooltips": {
+    "start-recording": "Ekran kaydedici (kaydı başlat)",
+    "stop-recording": "Ekran kaydedici (kaydı durdur)",
+    "not-installed": "Ekran kaydedici (yüklü değil)"
+  }
+}

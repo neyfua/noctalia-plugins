@@ -4,79 +4,157 @@
     {
       "id": "catwalk",
       "name": "Catwalk",
-      "version": "1.1.0",
+      "version": "1.1.3",
       "author": "MannuVilasara",
       "description": "A cute animated cat for your bar.",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.6.0",
       "license": "MIT",
-      "lastUpdated": "2025-12-18T17:50:30+05:30"
+      "tags": [
+        "Bar",
+        "Desktop",
+        "Panel",
+        "Fun"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
+    },
+    {
+      "id": "currency-converter",
+      "name": "Currency Converter",
+      "version": "1.0.1",
+      "author": "Lokize",
+      "description": "Real-time currency converter widget with support for multiple currencies",
+      "repository": "https://github.com/noctalia-dev/noctalia-plugins",
+      "minNoctaliaVersion": "3.6.0",
+      "license": "MIT",
+      "tags": [],
+      "lastUpdated": "2026-01-06T20:50:02-03:00"
     },
     {
       "id": "fancy-audiovisualizer",
       "name": "Fancy Audiovisualizer",
-      "version": "1.0.2",
+      "version": "1.0.7",
       "author": "Noctalia Team",
-      "description": "Fancy circular audio visualizer with reactive rings, inspired by GLava NCS",
+      "description": "Lemmy's fancy circular audio visualizer.",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.7.2",
       "license": "MIT",
-      "lastUpdated": "2025-12-21T22:46:29-05:00"
+      "tags": [
+        "Desktop",
+        "Audio"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
+    },
+    {
+      "id": "github-feed",
+      "name": "GitHub Feed",
+      "version": "1.0.0",
+      "author": "linuxmobile",
+      "description": "Display GitHub activity feed with stars, PRs, forks in an overlay panel",
+      "repository": "https://github.com/linuxmobile/github-feed-noctalia",
+      "minNoctaliaVersion": "3.6.0",
+      "license": "MIT",
+      "tags": [
+        "Bar",
+        "Panel",
+        "Development",
+        "Network"
+      ],
+      "lastUpdated": "2026-01-06T12:08:53-03:00"
     },
     {
       "id": "hello-world",
       "name": "Hello World",
-      "version": "1.0.4",
+      "version": "1.0.7",
       "author": "Noctalia Team <team@noctalia.dev>",
-      "description": "A simple Hello World plugin demonstrating functionalities.",
+      "description": "A simple Hello World plugin demonstrating functionalities. For developers only.",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.6.0",
       "license": "MIT",
-      "lastUpdated": "2025-12-21T22:07:55+01:00"
+      "tags": [
+        "Development"
+      ],
+      "lastUpdated": "2026-01-07T08:58:45-05:00"
     },
     {
-      "id": "launcher-button",
-      "name": "Launcher Button",
-      "version": "1.0.0",
-      "author": "Noctalia Team <team@noctalia.dev>",
-      "description": "A simple button that opens the app launcher.",
+      "id": "kaomoji-provider",
+      "name": "Kaomoji Provider",
+      "version": "1.0.2",
+      "author": "Noctalia Team",
+      "description": "Browse and search kaomoji emoticons from the launcher",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
-      "minNoctaliaVersion": "3.6.0",
+      "minNoctaliaVersion": "3.9.0",
       "license": "MIT",
-      "lastUpdated": "2025-12-07T16:04:14+01:00"
+      "tags": [
+        "Launcher",
+        "Fun"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
     },
     {
       "id": "mangowc-layout-switcher",
       "name": "Mangowc Layout Switcher",
-      "version": "1.1.0",
+      "version": "1.1.2",
       "author": "atheeq-rhxn",
       "description": "Switch between different mangowc layouts",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.6.0",
       "license": "MIT",
-      "lastUpdated": "2025-12-16T15:47:15+05:30"
+      "tags": [
+        "Bar",
+        "Panel",
+        "Gaming"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
     },
     {
       "id": "mini-docker",
       "name": "Mini Docker",
-      "version": "2.1.0",
+      "version": "2.1.1",
       "author": "MannuVilasara",
       "description": "Manage Docker containers, images, volumes & networks",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.6.0",
       "license": "MIT",
-      "lastUpdated": "2025-12-17T22:22:38+05:30"
+      "tags": [
+        "Bar",
+        "Panel",
+        "Development"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
     },
     {
       "id": "network-indicator",
       "name": "NetworkIndicator",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "tonigineer",
       "description": "A `lively` network traffic indicator.",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
-      "minNoctaliaVersion": "3.6.2",
+      "minNoctaliaVersion": "3.7.5",
       "license": "MIT",
-      "lastUpdated": "2025-12-15T13:05:46-05:00"
+      "tags": [
+        "Bar",
+        "Network",
+        "Indicator"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
+    },
+    {
+      "id": "noctalia-supergfxctl",
+      "name": "SuperGFX Control",
+      "version": "0.0.2",
+      "author": "cod3d <cod3ddot@proton.me>",
+      "description": "GPU control with supergfxctl for noctalia.",
+      "repository": "https://github.com/cod3ddot/noctalia-supergfxctl",
+      "minNoctaliaVersion": "3.7.5",
+      "license": "AGPL-3.0-or-later",
+      "tags": [
+        "Bar",
+        "Panel",
+        "System",
+        "Gaming"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
     },
     {
       "id": "privacy-indicator",
@@ -87,40 +165,109 @@
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.6.0",
       "license": "MIT",
-      "lastUpdated": "2025-12-17T16:37:25+01:00"
+      "tags": [
+        "Bar",
+        "Privacy",
+        "Indicator"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
+    },
+    {
+      "id": "rss-feed",
+      "name": "RSS Feed Reader",
+      "version": "1.0.0",
+      "author": "Lokize",
+      "description": "Monitor and read RSS/Atom feeds directly from your desktop",
+      "minNoctaliaVersion": "3.6.0",
+      "license": "MIT",
+      "tags": [],
+      "lastUpdated": "2026-01-06T08:00:55-03:00"
+    },
+    {
+      "id": "screen-recorder",
+      "name": "Screen Recorder",
+      "version": "1.0.3",
+      "author": "Noctalia Team",
+      "description": "Hardware-accelerated screen recording using gpu-screen-recorder with customizable video and audio settings",
+      "repository": "https://github.com/noctalia-dev/noctalia-plugins",
+      "minNoctaliaVersion": "3.6.0",
+      "license": "MIT",
+      "tags": [
+        "Bar",
+        "Utility"
+      ],
+      "lastUpdated": "2026-01-07T06:40:20+01:00"
+    },
+    {
+      "id": "simple-notes",
+      "name": "Simple Notes",
+      "version": "1.0.1",
+      "author": "fusuyfusuy",
+      "description": "A simple note taking plugin for Noctalia Shell.",
+      "repository": "",
+      "minNoctaliaVersion": "3.7.1",
+      "license": "MIT",
+      "tags": [
+        "Bar",
+        "Panel",
+        "Productivity"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
+    },
+    {
+      "id": "steam-price-watcher",
+      "name": "Steam Price Watcher",
+      "version": "1.0.1",
+      "author": "Lokize",
+      "description": "Monitor Steam game prices and get notified when they reach your target price",
+      "minNoctaliaVersion": "3.6.0",
+      "license": "MIT",
+      "tags": [],
+      "lastUpdated": "2026-01-06T15:53:10-03:00"
     },
     {
       "id": "todo",
       "name": "Todo List",
-      "version": "1.3.0",
+      "version": "1.5.0",
       "author": "lonerOrz <lonerOrz@qq.com>",
       "description": "A simple todo list manager plugin for Noctalia Shell.",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.7.1",
       "license": "MIT",
-      "lastUpdated": "2025-12-22T14:33:30+08:00"
+      "tags": [
+        "Bar",
+        "Desktop",
+        "Panel",
+        "Productivity"
+      ],
+      "lastUpdated": "2026-01-07T22:55:46+08:00"
     },
     {
       "id": "update-count",
       "name": "Update Count",
-      "version": "1.0.5",
+      "version": "1.0.7",
       "author": "BukoMoon",
       "description": "Checks for system updates and shows the update count. Click to run update command in a terminal.",
       "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.6.0",
       "license": "GPLv3",
-      "lastUpdated": "2025-12-19T10:19:39+01:00"
+      "tags": [
+        "Bar",
+        "System"
+      ],
+      "lastUpdated": "2026-01-04T21:11:31-05:00"
     },
     {
-      "id": "virtual-keyboard",
-      "name": "Virtual Keyboard",
+      "id": "world-clock",
+      "name": "World Clock",
       "version": "1.0.0",
-      "author": "Adrien Piechocki",
-      "description": "A Virtual Keyboard plugin made for accessibility.",
-      "repository": "https://github.com/AdrienPiechocki/noctalia-virtual-keyboard-plugin",
+      "author": "Lokize",
+      "description": "Display time from multiple timezones around the world with automatic rotation.",
+      "repository": "https://github.com/noctalia-dev/noctalia-plugins",
       "minNoctaliaVersion": "3.6.0",
       "license": "MIT",
-      "lastUpdated": "2025-12-12T12:12:32+01:00"
+      "tags": [],
+      "lastUpdated": "2026-01-04T19:48:13-03:00"
     }
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "name": "Screen Recorder",
+  "description": "Hardware-accelerated screen recording with customizable video and audio settings",
+  "settings": {
+    "title": "Screen Recorder Settings",
+    "general": {
+      "title": "General",
+      "output-folder": "Output folder",
+      "output-folder-description": "Folder where screen recordings will be saved",
+      "show-cursor": "Show cursor",
+      "show-cursor-description": "Record mouse cursor in the video"
+    },
+    "video": {
+      "title": "Video Settings",
+      "source": "Video source",
+      "source-desc": "Portal is recommended, if you get artifacts try Screen",
+      "frame-rate": "Frame rate",
+      "frame-rate-desc": "Target frame rate for screen recordings",
+      "quality": "Video quality",
+      "quality-desc": "Higher quality results in larger file sizes",
+      "codec": "Video codec",
+      "codec-desc": "h264 is the most common codec",
+      "color-range": "Color range",
+      "color-range-desc": "Limited is recommended for better compatibility"
+    },
+    "audio": {
+      "title": "Audio Settings",
+      "source": "Audio source",
+      "source-desc": "Audio source to capture during recording",
+      "codec": "Audio codec",
+      "codec-desc": "Opus is recommended for best performance and smallest audio size"
+    },
+    "filename_pattern": {
+      "label": "Filename pattern",
+      "description": "Filename pattern using date/time codes (e.g., recording_yyyyMMdd_HHmmss)"
+    }
+  },
+  "tooltips": {
+    "start-recording": "Screen recorder (start recording)",
+    "stop-recording": "Screen recorder (stop recording)",
+    "not-installed": "Screen recorder (not installed)"
+  }
+}

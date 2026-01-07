@@ -15,21 +15,32 @@ DraggableDesktopWidget {
 
   showBackground: (pluginApi && pluginApi.pluginSettings ? (pluginApi.pluginSettings.showBackground !== undefined ? pluginApi.pluginSettings.showBackground : pluginApi?.manifest?.metadata?.defaultSettings?.showBackground) : pluginApi?.manifest?.metadata?.defaultSettings?.showBackground)
 
-  readonly property color todoBg: showBackground ? Qt.rgba(0, 0, 0, 0.2) : Color.transparent
-  readonly property color itemBg: showBackground ? Color.mSurface : Color.transparent
-  readonly property color completedItemBg: showBackground ? Color.mSurfaceVariant : Color.transparent
+  readonly property color todoBg: showBackground ? Qt.rgba(0, 0, 0, 0.2) : "transparent"
+  readonly property color itemBg: showBackground ? Color.mSurface : "transparent"
+  readonly property color completedItemBg: showBackground ? Color.mSurfaceVariant : "transparent"
 
-  implicitWidth: 300
+  // Scaled dimensions
+  readonly property int scaledMarginM: Math.round(Style.marginM * widgetScale)
+  readonly property int scaledMarginS: Math.round(Style.marginS * widgetScale)
+  readonly property int scaledMarginL: Math.round(Style.marginL * widgetScale)
+  readonly property int scaledBaseWidgetSize: Math.round(Style.baseWidgetSize * widgetScale)
+  readonly property int scaledFontSizeL: Math.round(Style.fontSizeL * widgetScale)
+  readonly property int scaledFontSizeM: Math.round(Style.fontSizeM * widgetScale)
+  readonly property int scaledFontSizeS: Math.round(Style.fontSizeS * widgetScale)
+  readonly property int scaledRadiusM: Math.round(Style.radiusM * widgetScale)
+  readonly property int scaledRadiusS: Math.round(Style.radiusS * widgetScale)
+
+  implicitWidth: Math.round(300 * widgetScale)
   implicitHeight: {
-    var headerHeight = Style.baseWidgetSize + Style.marginL * 2;
+    var headerHeight = scaledBaseWidgetSize + scaledMarginL * 2;
     if (!expanded)
       return headerHeight;
 
     var todosCount = root.filteredTodosModel.count;
-    var contentHeight = (todosCount === 0) ? Style.baseWidgetSize : (Style.baseWidgetSize * todosCount + Style.marginS * (todosCount - 1));
+    var contentHeight = (todosCount === 0) ? scaledBaseWidgetSize : (scaledBaseWidgetSize * todosCount + scaledMarginS * (todosCount - 1));
 
-    var totalHeight = contentHeight + Style.marginM * 2 + headerHeight;
-    return Math.min(totalHeight, headerHeight + 400); // Max 400px of content
+    var totalHeight = contentHeight + scaledMarginM * 2 + headerHeight;
+    return Math.min(totalHeight, headerHeight + Math.round(400 * widgetScale)); // Max 400px of content (scaled)
   }
 
   function getCurrentTodos() {
@@ -97,21 +108,21 @@ DraggableDesktopWidget {
 
   ColumnLayout {
     anchors.fill: parent
-    anchors.margins: Style.marginM
-    spacing: Style.marginS
+    anchors.margins: scaledMarginM
+    spacing: scaledMarginS
 
     RowLayout {
-      spacing: Style.marginS
+      spacing: scaledMarginS
       Layout.fillWidth: true
 
       NIcon {
         icon: "checklist"
-        pointSize: Style.fontSizeL
+        pointSize: scaledFontSizeL
       }
 
       NText {
         text: pluginApi?.tr("desktop_widget.header_title")
-        font.pointSize: Style.fontSizeL
+        font.pointSize: scaledFontSizeL
         font.weight: Font.Medium
       }
 
@@ -130,75 +141,111 @@ DraggableDesktopWidget {
           return text.replace("{active}", activeTodos).replace("{total}", todos.length);
         }
         color: Color.mOnSurfaceVariant
-        font.pointSize: Style.fontSizeS
+        font.pointSize: scaledFontSizeS
       }
 
       NIcon {
         icon: root.expanded ? "chevron-up" : "chevron-down"
-        pointSize: Style.fontSizeM
+        pointSize: scaledFontSizeM
         color: Color.mOnSurfaceVariant
       }
     }
 
     Item {
       Layout.fillWidth: true
-      Layout.preferredHeight: expanded ? (root.implicitHeight - (Style.baseWidgetSize + Style.marginL * 2)) : 0
+      Layout.fillHeight: true
       visible: expanded
 
-      NBox {
+      // Background with border - fills entire available space
+      Rectangle {
+        id: backgroundRect
         anchors.fill: parent
         color: root.todoBg
-        radius: Style.radiusM
+        radius: scaledRadiusM
+        border.color: showBackground ? Color.mOutline : "transparent"
+        border.width: showBackground ? 1 : 0
+      }
 
-        ListView {
-          id: todoListView
+      // Inner container that is fully inset from the border area
+      Item {
+        id: innerContentArea
+        anchors.fill: parent
+        anchors.margins: showBackground ? 2 : 0  // Use 2px margin to ensure we're clear of 1px border
+
+        // Scrollable area for the todo items
+        Flickable {
+          id: todoFlickable
           anchors.fill: parent
-          anchors.margins: Style.marginS
-          model: root.filteredTodosModel
-          spacing: Style.marginS
-          boundsBehavior: Flickable.StopAtBounds
+          topMargin: scaledMarginL
+          bottomMargin: scaledMarginL
+          leftMargin: scaledMarginS
+          rightMargin: scaledMarginM
+          contentWidth: width - (leftMargin + rightMargin)  // Account for margins in content width
+          contentHeight: columnLayout.implicitHeight
           flickableDirection: Flickable.VerticalFlick
+          clip: true  // Critical: ensures content doesn't render outside bounds
+          boundsBehavior: Flickable.StopAtBounds  // Completely stop at bounds, no overscroll
 
-          height: Math.min(contentHeight, 400 - 2 * Style.marginS)
+          Column {
+            id: columnLayout
+            width: parent.width
+            spacing: scaledMarginS
 
-          delegate: Rectangle {
-            width: ListView.view.width
-            height: Style.baseWidgetSize
-            color: model.completed ? root.completedItemBg : root.itemBg
-            radius: Style.radiusS
+            Repeater {
+              model: root.filteredTodosModel
 
-            RowLayout {
-              anchors.fill: parent
-              anchors.margins: Style.marginS
-              spacing: Style.marginS
+              delegate: Item {
+                width: parent.width
+                height: scaledBaseWidgetSize
 
-              NIcon {
-                icon: model.completed ? "square-check" : "square"
-                color: model.completed ? Color.mPrimary : Color.mOnSurfaceVariant
-                pointSize: Style.fontSizeS
-              }
+                Rectangle {
+                  anchors.fill: parent
+                  anchors.margins: 0
+                  color: model.completed ? root.completedItemBg : root.itemBg
+                  radius: scaledRadiusS
 
-              NText {
-                text: model.text
-                color: model.completed ? Color.mOnSurfaceVariant : Color.mOnSurface
-                font.strikeout: model.completed
-                elide: Text.ElideRight
-                Layout.fillWidth: true
+                  Item {
+                    anchors.fill: parent
+                    anchors.margins: scaledMarginM
+
+                    NIcon {
+                      id: iconItem
+                      icon: model.completed ? "square-check" : "square"
+                      color: model.completed ? Color.mPrimary : Color.mOnSurfaceVariant
+                      pointSize: scaledFontSizeS
+                      anchors.left: parent.left
+                      anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    NText {
+                      text: model.text
+                      color: model.completed ? Color.mOnSurfaceVariant : Color.mOnSurface
+                      font.strikeout: model.completed
+                      elide: Text.ElideRight
+                      anchors.left: iconItem.right
+                      anchors.leftMargin: scaledMarginS
+                      anchors.right: parent.right
+                      anchors.verticalCenter: parent.verticalCenter
+                      font.pointSize: scaledFontSizeS
+                    }
+                  }
+                }
               }
             }
           }
         }
 
+        // Empty state overlay
         Item {
           anchors.fill: parent
-          anchors.margins: Style.marginS
+          anchors.margins: scaledMarginS
           visible: root.filteredTodosModel.count === 0
 
           NText {
             anchors.centerIn: parent
             text: pluginApi?.tr("desktop_widget.empty_state")
             color: Color.mOnSurfaceVariant
-            font.pointSize: Style.fontSizeM
+            font.pointSize: scaledFontSizeM
             font.weight: Font.Normal
           }
         }

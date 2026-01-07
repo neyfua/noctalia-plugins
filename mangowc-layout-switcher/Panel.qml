@@ -123,7 +123,7 @@ Item {
               radius: Style.radiusM
               
               border.width: 2
-              border.color: !isActive && isHovered ? Color.mPrimary : Color.transparent
+              border.color: !isActive && isHovered ? Color.mPrimary : "transparent"
               
               Behavior on border.color { ColorAnimation { duration: 150 } }
               Behavior on color { ColorAnimation { duration: 150 } }

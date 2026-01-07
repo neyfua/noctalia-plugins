@@ -1,0 +1,43 @@
+{
+  "name": "Registratore Schermo",
+  "description": "Registrazione dello schermo con accelerazione hardware e impostazioni video e audio personalizzabili",
+  "settings": {
+    "title": "Impostazioni Registratore Schermo",
+    "general": {
+      "title": "Generale",
+      "output-folder": "Cartella di output",
+      "output-folder-description": "Cartella dove verranno salvate le registrazioni dello schermo",
+      "show-cursor": "Mostra cursore",
+      "show-cursor-description": "Registra il cursore del mouse nel video",
+      "copy-to-clipboard": "Copia negli appunti",
+      "copy-to-clipboard-desc": "Copia il file negli appunti dopo il completamento della registrazione"
+    },
+    "video": {
+      "title": "Impostazioni Video",
+      "source": "Sorgente video",
+      "source-desc": "Portal è consigliato, se si ottengono artefatti prova Schermo",
+      "frame-rate": "Frequenza fotogrammi",
+      "frame-rate-desc": "Frequenza fotogrammi target per le registrazioni dello schermo",
+      "quality": "Qualità video",
+      "quality-desc": "Qualità superiore risulta in file più grandi",
+      "codec": "Codec video",
+      "codec-desc": "h264 è il codec più comune",
+      "color-range": "Gamma colori",
+      "color-range-desc": "Limitato è consigliato per una migliore compatibilità"
+    },
+    "audio": {
+      "title": "Impostazioni Audio",
+      "source": "Sorgente audio",
+      "source-desc": "Sorgente audio da catturare durante la registrazione",
+      "codec": "Codec audio",
+      "codec-desc": "Opus è consigliato per le migliori prestazioni e dimensioni audio più piccole"    },
+    "filename_pattern": {
+      "label": "Modello del nome file",
+      "description": "Modello del nome file usando codici data/ora (ad es. recording_yyyyMMdd_HHmmss)"    }
+  },
+  "tooltips": {
+    "start-recording": "Registratore schermo (avvia registrazione)",
+    "stop-recording": "Registratore schermo (ferma registrazione)",
+    "not-installed": "Registratore schermo (non installato)"
+  }
+}

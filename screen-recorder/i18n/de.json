@@ -1,0 +1,43 @@
+{
+  "name": "Bildschirmrekorder",
+  "description": "Hardwarebeschleunigte Bildschirmaufnahme mit anpassbaren Video- und Audioeinstellungen",
+  "settings": {
+    "title": "Bildschirmrekorder-Einstellungen",
+    "general": {
+      "title": "Allgemein",
+      "output-folder": "Ausgabeordner",
+      "output-folder-description": "Ordner, in dem Bildschirmaufnahmen gespeichert werden",
+      "show-cursor": "Cursor anzeigen",
+      "show-cursor-description": "Mauszeiger im Video aufnehmen"
+    },
+    "video": {
+      "title": "Videoeinstellungen",
+      "source": "Videoquelle",
+      "source-desc": "Portal wird empfohlen, bei Artefakten versuchen Sie Bildschirm",
+      "frame-rate": "Bildrate",
+      "frame-rate-desc": "Ziel-Bildrate für Bildschirmaufnahmen",
+      "quality": "Videoqualität",
+      "quality-desc": "Höhere Qualität führt zu größeren Dateien",
+      "codec": "Video-Codec",
+      "codec-desc": "h264 ist der gängigste Codec",
+      "color-range": "Farbbereich",
+      "color-range-desc": "Begrenzt wird für bessere Kompatibilität empfohlen"
+    },
+    "audio": {
+      "title": "Audioeinstellungen",
+      "source": "Audioquelle",
+      "source-desc": "Audioquelle, die während der Aufnahme aufgenommen werden soll",
+      "codec": "Audio-Codec",
+      "codec-desc": "Opus wird für beste Leistung und kleinste Audiogröße empfohlen"
+    },
+    "filename_pattern": {
+      "label": "Dateinamenmuster",
+      "description": "Dateinamenmuster mit Datums-/Zeitcodes (z.B. recording_yyyyMMdd_HHmmss)"
+    }
+  },
+  "tooltips": {
+    "start-recording": "Bildschirmrekorder (Aufnahme starten)",
+    "stop-recording": "Bildschirmrekorder (Aufnahme stoppen)",
+    "not-installed": "Bildschirmrekorder (nicht installiert)"
+  }
+}
