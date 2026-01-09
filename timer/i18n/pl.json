@@ -11,5 +11,9 @@
     "toast": {
         "title": "Czasomierz",
         "finished": "Czasomierz zakończony!"
+    },
+    "settings": {
+        "compact-mode": "Tryb kompaktowy",
+        "compact-mode-desc": "Ukryj okrągły pasek postępu dla czystszego wyglądu"
     }
 }

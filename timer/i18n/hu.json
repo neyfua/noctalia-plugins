@@ -11,5 +11,9 @@
     "toast": {
         "title": "Időzítő",
         "finished": "Időzítő lejárt!"
+    },
+    "settings": {
+        "compact-mode": "Kompakt mód",
+        "compact-mode-desc": "A körkörös folyamatjelző elrejtése a tisztább megjelenés érdekében"
     }
 }

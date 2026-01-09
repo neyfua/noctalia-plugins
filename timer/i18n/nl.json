@@ -4,12 +4,16 @@
         "countdown": "Aftellen",
         "stopwatch": "Stopwatch",
         "start": "Start",
-        "pause": "Pauzeren",
+        "pause": "Pauze",
         "resume": "Hervatten",
         "reset": "Resetten"
     },
     "toast": {
         "title": "Timer",
         "finished": "Timer afgelopen!"
+    },
+    "settings": {
+        "compact-mode": "Compacte modus",
+        "compact-mode-desc": "Verberg de circulaire voortgangsbalk voor een schoner uiterlijk"
     }
 }

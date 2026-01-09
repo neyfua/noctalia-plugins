@@ -1,15 +1,19 @@
 {
     "panel": {
-        "title": "کاتژمێر",
-        "countdown": "ژمارەی پاشەکشە",
-        "stopwatch": "کاتژمێری وەستان",
-        "start": "دەستپێکردن",
-        "pause": "وەستان",
-        "resume": "دووبارە دەستپێکردن",
-        "reset": "ڕێکخستنەوە"
+        "title": "Demjimêr",
+        "countdown": "Jimartina Paşve",
+        "stopwatch": "Demgir",
+        "start": "Destpêkirin",
+        "pause": "Rawestandin",
+        "resume": "Berdewamkirin",
+        "reset": "Nûkirin"
     },
     "toast": {
-        "title": "کاتژمێر",
-        "finished": "کاتژمێر تەواو بوو!"
+        "title": "Demjimêr",
+        "finished": "Demjimêr qediya!"
+    },
+    "settings": {
+        "compact-mode": "Moda Kompakt",
+        "compact-mode-desc": "Barê pêşveçûnê yê dorûber veşêre ji bo dîmenek paqijtir"
     }
 }

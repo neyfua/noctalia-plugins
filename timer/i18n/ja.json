@@ -11,5 +11,9 @@
     "toast": {
         "title": "タイマー",
         "finished": "タイマー終了！"
+    },
+    "settings": {
+        "compact-mode": "コンパクトモード",
+        "compact-mode-desc": "円形の進行状況バーを非表示にして、すっきりとした見た目にする"
     }
 }

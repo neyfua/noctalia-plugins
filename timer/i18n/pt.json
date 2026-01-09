@@ -11,5 +11,9 @@
     "toast": {
         "title": "Temporizador",
         "finished": "Temporizador finalizado!"
+    },
+    "settings": {
+        "compact-mode": "Modo compacto",
+        "compact-mode-desc": "Ocultar a barra de progresso circular para um visual mais limpo"
     }
 }

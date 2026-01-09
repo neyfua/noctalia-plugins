@@ -11,5 +11,9 @@
     "toast": {
         "title": "Timer",
         "finished": "Timer finished!"
+    },
+    "settings": {
+        "compact-mode": "Compact Mode",
+        "compact-mode-desc": "Hide the circular progress bar for a cleaner look"
     }
 }

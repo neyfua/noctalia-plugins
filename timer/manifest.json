@@ -1,7 +1,7 @@
 {
   "id": "timer",
   "name": "Timer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minNoctaliaVersion": "3.6.0",
   "author": "Noctalia Team",
   "license": "MIT",
@@ -15,12 +15,16 @@
     "main": "Main.qml",
     "barWidget": "BarWidget.qml",
     "panel": "Panel.qml",
-    "controlCenterWidget": "ControlCenterWidget.qml"
+    "controlCenterWidget": "ControlCenterWidget.qml",
+    "settings": "Settings.qml"
   },
   "dependencies": {
     "plugins": []
   },
   "metadata": {
-    "defaultSettings": {}
+    "defaultSettings": {
+      "defaultDuration": 0,
+      "compactMode": false
+    }
   }
 }

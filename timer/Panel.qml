@@ -10,9 +10,18 @@ Item {
 
   property var pluginApi: null
   readonly property var geometryPlaceholder: panelContainer
-  property real contentPreferredWidth: 380 * Style.uiScaleRatio
-  property real contentPreferredHeight: 350 * Style.uiScaleRatio
+  property real contentPreferredWidth: (compactMode ? 340 : 380) * Style.uiScaleRatio
+  property real contentPreferredHeight: (compactMode ? 230 : 350) * Style.uiScaleRatio
   readonly property bool allowAttach: true
+
+
+
+  readonly property bool compactMode: 
+      pluginApi?.pluginSettings?.compactMode ?? 
+      pluginApi?.manifest?.metadata?.defaultSettings?.compactMode ?? 
+      false
+
+
 
   anchors.fill: parent
   
@@ -27,7 +36,12 @@ Item {
   
   function startTimer() { if (mainInstance) mainInstance.timerStart(); }
   function pauseTimer() { if (mainInstance) mainInstance.timerPause(); }
-  function resetTimer() { if (mainInstance) mainInstance.timerReset(); }
+  function resetTimer() { 
+      if (mainInstance) {
+          mainInstance.timerReset();
+          // Do not apply default duration here. User wants 00:00:00 on reset.
+      }
+  }
   
   function setTimerStopwatchMode(mode) { 
     if (mainInstance) {
@@ -39,6 +53,9 @@ Item {
             if (mode) {
                 mainInstance.timerElapsedSeconds = 0;
             } else {
+                // When switching to timer mode, maybe also reset to 0? 
+                // Or should we pre-fill? User said "when reset it shows 20:00... ONLY display time when running"
+                // Safer to show 0.
                 mainInstance.timerRemainingSeconds = 0;
             }
         }
@@ -112,6 +129,10 @@ Item {
     hours = Math.min(99, hours);
 
     setTimerRemainingSeconds((hours * 3600) + (minutes * 60) + seconds);
+  }
+
+  Component.onCompleted: {
+      // Do not auto-set default duration on load
   }
 
   function applyTimeFromBuffer() {
@@ -215,7 +236,7 @@ Item {
           anchors.centerIn: parent
           width: Math.min(parent.width, parent.height) * 1.0
           height: width
-          visible: !isStopwatchMode && totalSeconds > 0
+          visible: !isStopwatchMode && totalSeconds > 0 && !compactMode && (isRunning || elapsedSeconds > 0)
           z: -1
 
           property real progressRatio: {
@@ -290,10 +311,11 @@ Item {
             }
 
             font.pointSize: {
+              const scale = compactMode ? 0.8 : 1.0;
               if (totalSeconds === 0) {
-                return Style.fontSizeXXXL * 1.5;
+                return Style.fontSizeXXXL * 1.5 * scale;
               }
-              return showingHours ? Style.fontSizeXXL * 1.5 : (Style.fontSizeXXL * 1.8);
+              return (showingHours ? Style.fontSizeXXL * 1.5 : (Style.fontSizeXXL * 1.8)) * scale;
             }
 
             font.weight: Style.fontWeightBold
