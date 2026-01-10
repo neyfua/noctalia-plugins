@@ -26,9 +26,9 @@
     },
     "edit_todo": {
       "cancel_button": "Cancelar",
-      "placeholder": "Inserir texto da tarefa",
+      "placeholder": "Digite o texto da tarefa",
       "save_button": "Salvar",
-      "title": "Editar Tarefa"
+      "title": "Editar tarefa"
     },
     "empty_state": {
       "message": "Nenhum item de afazeres ainda."

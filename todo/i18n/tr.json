@@ -26,9 +26,9 @@
     },
     "edit_todo": {
       "cancel_button": "İptal",
-      "placeholder": "Yapılacaklar metnini girin",
+      "placeholder": "Yapılacak metnini girin",
       "save_button": "Kaydet",
-      "title": "Yapılacakları Düzenle"
+      "title": "Yapılacakları düzenle"
     },
     "empty_state": {
       "message": "Henüz yapılacak bir şey yok."

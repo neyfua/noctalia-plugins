@@ -26,7 +26,7 @@
     },
     "edit_todo": {
       "cancel_button": "Annuleren",
-      "placeholder": "Voer taaktekst in",
+      "placeholder": "Voer todo-tekst in",
       "save_button": "Opslaan",
       "title": "Taak bewerken"
     },

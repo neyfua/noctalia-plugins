@@ -26,9 +26,9 @@
     },
     "edit_todo": {
       "cancel_button": "Abbrechen",
-      "placeholder": "Geben Sie den To-Do-Text ein",
+      "placeholder": "Aufgabentext eingeben",
       "save_button": "Speichern",
-      "title": "Todo bearbeiten"
+      "title": "Aufgabe bearbeiten"
     },
     "empty_state": {
       "message": "Noch keine To-Do-Elemente vorhanden."

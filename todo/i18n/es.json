@@ -26,7 +26,7 @@
     },
     "edit_todo": {
       "cancel_button": "Cancelar",
-      "placeholder": "Ingrese el texto de la tarea pendiente.",
+      "placeholder": "Introducir texto de la tarea",
       "save_button": "Guardar",
       "title": "Editar tarea"
     },

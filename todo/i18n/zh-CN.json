@@ -26,7 +26,7 @@
     },
     "edit_todo": {
       "cancel_button": "取消",
-      "placeholder": "输入待办事项文本",
+      "placeholder": "输入待办事项内容",
       "save_button": "保存",
       "title": "编辑待办事项"
     },

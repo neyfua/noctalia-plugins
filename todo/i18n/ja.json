@@ -26,9 +26,9 @@
     },
     "edit_todo": {
       "cancel_button": "キャンセル",
-      "placeholder": "TODOテキストを入力",
+      "placeholder": "ToDo テキストを入力",
       "save_button": "保存",
-      "title": "TODOを編集"
+      "title": "ToDo を編集"
     },
     "empty_state": {
       "message": "まだタスクはありません"

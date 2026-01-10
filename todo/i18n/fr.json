@@ -26,8 +26,8 @@
     },
     "edit_todo": {
       "cancel_button": "Annuler",
-      "placeholder": "Entrez le texte de la tâche à faire.",
-      "save_button": "Sauvegarder",
+      "placeholder": "Saisir le texte de la tâche",
+      "save_button": "Enregistrer",
       "title": "Modifier la tâche"
     },
     "empty_state": {
