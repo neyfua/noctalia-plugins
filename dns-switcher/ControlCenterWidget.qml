@@ -6,13 +6,10 @@ import qs.Widgets
 NIconButton {
     id: root
 
-    // --- Injected Properties ---
     property var pluginApi: null
     property var screen: null
     readonly property var mainInstance: pluginApi?.mainInstance
 
-    // --- Appearance ---
-    // 1. Icon Logic
     icon: {
         var name = mainInstance?.currentDnsName || "";
         if (name === "Google") return "brand-google";
@@ -22,20 +19,17 @@ NIconButton {
         return "globe";
     }
 
-    // 2. Active State (Colored if not using Default/ISP)
-    property bool isActive: (mainInstance?.currentDnsName || "") !== "Default (ISP)"
+    // TRANSLATION: Status check against translated string
+    property bool isActive: (mainInstance?.currentDnsName || "") !== (pluginApi?.tr("status.default") || "Default (ISP)")
 
-    // 3. Colors (Primary when active, Gray when inactive)
     colorBg: isActive ? Color.mPrimary : Color.mSurfaceVariant
     colorFg: isActive ? Color.mOnPrimary : Color.mOnSurface
 
-    // 4. Tooltip
-    tooltipText: mainInstance?.currentDnsName || "DNS Switcher"
+    // TRANSLATION: Tooltip
+    tooltipText: mainInstance?.currentDnsName || pluginApi?.tr("plugin.title") || "DNS Switcher"
 
-    // --- Interaction ---
     onClicked: {
         if (pluginApi) {
-            // Open the panel attached to THIS button
             pluginApi.openPanel(root.screen, root)
         }
     }

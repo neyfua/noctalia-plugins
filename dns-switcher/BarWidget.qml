@@ -8,7 +8,6 @@ import qs.Services.UI
 Rectangle {
     id: root
 
-    // --- REQUIRED PROPERTIES ---
     property var pluginApi: null
     property ShellScreen screen
     property string widgetId: ""
@@ -16,25 +15,19 @@ Rectangle {
 
     readonly property var mainInstance: pluginApi?.mainInstance
 
-    // --- SIZING (Fixed to match System Pills) ---
-    // Use capsuleHeight instead of barHeight to match Battery/Clock pills
     implicitHeight: Style.capsuleHeight
     implicitWidth: contentRow.implicitWidth + (Style.marginM * 2)
 
-    // --- STYLING ---
     color: Style.capsuleColor
-    // Perfectly round pill shape
     radius: height / 2
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 
-    // --- CONTENT ---
     RowLayout {
         id: contentRow
         anchors.centerIn: parent
         spacing: Style.marginS
 
-        // Icon
         NIcon {
             icon: {
                 var name = mainInstance?.currentDnsName || "";
@@ -44,22 +37,19 @@ Rectangle {
                 if (name === "Quad9") return "lock";
                 return "globe";
             }
-            // Use 'S' size for bar icons to keep them small
             pointSize: Style.fontSizeS
             color: Color.mPrimary
         }
 
-        // Text
         NText {
-            text: mainInstance?.currentDnsName || "DNS"
+            // TRANSLATION: Short Title
+            text: mainInstance?.currentDnsName || pluginApi?.tr("plugin.short_title") || "DNS"
             color: Color.mOnSurface
-            // Use specific bar font size
             pointSize: Style.barFontSize
             font.weight: Font.Medium
         }
     }
 
-    // --- INTERACTION ---
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true

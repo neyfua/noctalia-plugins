@@ -55,7 +55,8 @@ Item {
                     }
 
                     NText {
-                        text: "DNS Switcher"
+                        // TRANSLATION: Plugin Title
+                        text: pluginApi?.tr("plugin.title") || "DNS Switcher"
                         pointSize: Style.fontSizeL
                         font.weight: Style.fontWeightBold
                         color: Color.mOnSurface
@@ -65,7 +66,8 @@ Item {
                     NText {
                         text: mainInstance?.currentDnsName || "..."
                         pointSize: Style.fontSizeS
-                        color: (mainInstance?.currentDnsName === "Switching...") ? Color.mPrimary : Color.mSecondary
+                        color: (mainInstance?.currentDnsName === (pluginApi?.tr("status.switching") || "Switching...")) ?
+                        Color.mPrimary : Color.mSecondary
                         font.weight: Font.Medium
                     }
                 }
@@ -93,20 +95,16 @@ Item {
                         property bool isCustom: false
                         property bool isActive: (mainInstance?.currentDnsName || "") === label
 
-                        // 1. BASE COLOR (Only handles Active/Inactive - No Hover logic here)
+                        // 1. BASE COLOR (Only handles Active/Inactive)
                         color: isActive ? Color.mPrimary : Color.mSurfaceVariant
                         Behavior on color { ColorAnimation { duration: Style.animationFast } }
 
-                        // 2. HOVER OVERLAY (Dedicated invisible layer that lights up)
-                        // This sits on top of the base color but under the text.
+                        // 2. HOVER OVERLAY (Dedicated invisible layer)
                         Rectangle {
                             anchors.fill: parent
                             radius: opt.radius
-                            // If hovered AND not active, show a subtle white/hover tint
                             color: (hoverArea.containsMouse && !opt.isActive) ? Color.mHover : "transparent"
-                            opacity: (hoverArea.containsMouse && !opt.isActive) ? 0.5 : 0
-
-                            // Smooth fade in/out for hover
+                            opacity: (hoverArea.containsMouse && !opt.isActive) ? 0.2 : 0
                             Behavior on opacity { NumberAnimation { duration: 150 } }
                         }
 
@@ -171,7 +169,10 @@ Item {
             // 3. ADD CUSTOM SERVER BUTTON
             NButton {
                 Layout.fillWidth: true
-                text: root.isAdding ? "Cancel" : "Add Custom Server"
+                // TRANSLATION: Add/Cancel
+                text: root.isAdding
+                ? (pluginApi?.tr("panel.cancel") || "Cancel")
+                : (pluginApi?.tr("panel.add_server") || "Add Custom Server")
                 icon: root.isAdding ? "x" : "plus"
                 backgroundColor: root.isAdding ? Color.mSurfaceVariant : Qt.alpha(Color.mPrimary, 0.15)
                 textColor: root.isAdding ? Color.mOnSurface : Color.mPrimary
@@ -180,14 +181,30 @@ Item {
 
             // 4. ADD FORM
             ColumnLayout {
-                Layout.fillWidth: true; visible: root.isAdding; spacing: Style.marginS
+                Layout.fillWidth: true;
+                visible: root.isAdding; spacing: Style.marginS
                 RowLayout {
                     spacing: Style.marginS
-                    NTextInput { Layout.fillWidth: true; label: "Name"; placeholderText: "Name"; onTextChanged: root.newName = text }
-                    NTextInput { Layout.fillWidth: true; label: "IP"; placeholderText: "IP"; onTextChanged: root.newIp = text }
+                    NTextInput {
+                        Layout.fillWidth: true;
+                        // TRANSLATION: Name
+                        label: pluginApi?.tr("panel.name_placeholder") || "Name"
+                        placeholderText: pluginApi?.tr("panel.name_placeholder") || "Name"
+                        onTextChanged: root.newName = text
+                    }
+                    NTextInput {
+                        Layout.fillWidth: true;
+                        // TRANSLATION: IP
+                        label: pluginApi?.tr("panel.ip_placeholder") || "IP"
+                        placeholderText: pluginApi?.tr("panel.ip_placeholder") || "IP"
+                        onTextChanged: root.newIp = text
+                    }
                 }
                 NButton {
-                    Layout.fillWidth: true; text: "Save"; icon: "check"
+                    Layout.fillWidth: true;
+                    // TRANSLATION: Save
+                    text: pluginApi?.tr("panel.save") || "Save"
+                    icon: "check"
                     onClicked: {
                         if (mainInstance) {
                             mainInstance.addCustomServer(root.newName, root.newIp);
@@ -201,7 +218,8 @@ Item {
             NButton {
                 Layout.fillWidth: true
                 Layout.topMargin: Style.marginS
-                text: "Reset to Default (ISP)"
+                // TRANSLATION: Reset
+                text: pluginApi?.tr("panel.reset") || "Reset to Default (ISP)"
                 icon: "refresh"
                 backgroundColor: Qt.alpha(Color.mError, 0.15)
                 textColor: Color.mError

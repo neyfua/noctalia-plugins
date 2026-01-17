@@ -9,7 +9,8 @@ Item {
     id: root
     property var pluginApi: null
 
-    property string currentDnsName: "Checking..."
+    // TRANSLATION: Default checking text
+    property string currentDnsName: pluginApi?.tr("status.checking") || "Checking..."
     property bool isChanging: false
 
     // --- 1. DATA STORAGE ---
@@ -68,12 +69,17 @@ Item {
             if (ip.includes(srv.ip.split(" ")[0])) return srv.label;
         }
 
-        if (ip === "" || ip.includes("192.168") || ip.includes("127.0")) return "Default (ISP)";
-        return "Custom (" + ip + ")";
+        // TRANSLATION: Default Status
+        if (ip === "" || ip.includes("192.168") || ip.includes("127.0"))
+            return pluginApi?.tr("status.default") || "Default (ISP)";
+
+        // TRANSLATION: Custom IP Status
+        return pluginApi?.tr("status.custom", { ip: ip }) || "Custom (" + ip + ")";
     }
 
     Timer {
-        interval: 3000; running: true; repeat: true; triggeredOnStart: true
+        interval: 3000;
+        running: true; repeat: true; triggeredOnStart: true
         onTriggered: checkProcess.running = true
     }
 
@@ -92,9 +98,10 @@ Item {
     function setDns(payload) {
         if (isChanging) return;
         isChanging = true;
-        root.currentDnsName = "Switching...";
 
-        // Determine IP: Is it a preset ID or a raw IP?
+        // TRANSLATION: Switching Status
+        root.currentDnsName = pluginApi?.tr("status.switching") || "Switching...";
+
         var dnsIp = payload;
         var preset = defaultProviders.find(p => p.id === payload);
         if (preset) dnsIp = preset.ip;
