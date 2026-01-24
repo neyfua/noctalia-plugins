@@ -55,6 +55,7 @@
     "online": "Online",
     "offline": "Offline",
     "no-peers": "No connected peers",
+    "send-files": "Send Files",
     "admin-console": "Admin Console",
     "terminal-warning": {
       "title": "Terminal Not Configured",

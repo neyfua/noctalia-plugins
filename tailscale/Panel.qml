@@ -159,6 +159,9 @@ Item {
 
   readonly property bool panelReady: pluginApi !== null && mainInstance !== null && mainInstance !== undefined
 
+  // Check if Taildrop plugin is available
+  readonly property bool taildropAvailable: PluginService.getPluginAPI("taildrop") !== null
+
   readonly property bool hideDisconnected:
     pluginApi?.pluginSettings?.hideDisconnected ??
     pluginApi?.manifest?.metadata?.defaultSettings?.hideDisconnected ??
@@ -481,6 +484,16 @@ Item {
               }
             }
           }
+        }
+      }
+
+      NButton {
+        Layout.fillWidth: true
+        visible: root.taildropAvailable && (mainInstance?.tailscaleRunning ?? false)
+        text: pluginApi?.tr("panel.send-files") || "Send Files"
+        icon: "send"
+        onClicked: {
+          Quickshell.execDetached(["qs", "-c", "noctalia-shell", "ipc", "call", "plugin:taildrop", "open"])
         }
       }
 

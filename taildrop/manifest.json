@@ -1,0 +1,29 @@
+{
+  "id": "taildrop",
+  "name": "Taildrop",
+  "version": "1.0.0",
+  "minNoctaliaVersion": "4.0.0",
+  "author": "nineluj",
+  "license": "MIT",
+  "repository": "https://github.com/noctalia-dev/noctalia-plugins",
+  "description": "Send and receive files via Tailscale Taildrop.",
+  "tags": [
+    "Bar",
+    "Network",
+    "Utility"
+  ],
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "settings": "Settings.qml",
+    "panel": "Panel.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "receiveDirectory": "~/Downloads/Taildrop"
+    }
+  }
+}
