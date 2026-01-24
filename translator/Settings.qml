@@ -15,7 +15,7 @@ ColumnLayout {
 
     property string editDeeplApiKey: pluginApi?.pluginSettings?.deeplApiKey || ""
     property bool editRealTime: pluginApi?.pluginSettings?.realTimeTranslation !== undefined ? pluginApi.pluginSettings.realTimeTranslation : true
-
+    property bool editShowPreview: pluginApi?.pluginSettings?.showPreview !== undefined ? pluginApi.pluginSettings.showPreview : true
     spacing: Style.marginM
 
     NComboBox {
@@ -53,12 +53,21 @@ ColumnLayout {
         defaultValue: pluginApi?.manifest?.metadata?.defaultSettings?.realTime || true
     }
 
+    NToggle {
+        label: pluginApi?.tr("settings.showPreview-label") || "Translation Preview"
+        description: pluginApi?.tr("settings.showPreview-description") || "Show the translation result in the preview pane"
+        checked: root.editShowPreview
+        onToggled: checked => root.editShowPreview = checked
+        defaultValue: true
+    }
+
     function saveSettings() {
         if (!pluginApi) return;
 
         pluginApi.pluginSettings.backend = root.editBackend;
         pluginApi.pluginSettings.deeplApiKey = root.editDeeplApiKey;
         pluginApi.pluginSettings.realTimeTranslation = root.editRealTime;
+        pluginApi.pluginSettings.showPreview = root.editShowPreview;
         pluginApi.saveSettings();
     }
 }

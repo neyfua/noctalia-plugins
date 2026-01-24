@@ -112,9 +112,11 @@
   "settings": {
       "backend-description": "Choose the translation service to use",
       "backend-label": "Translation Backend",
-      "realTime-label": "Real-time translation",
+      "realTime-label": "Real-time Translation",
       "realTime-description": "Translate as you type (May result in significant token consumption)",
       "apiKey-placeholder": "Enter your API key here",
-      "apiKey-label": "API key"
+      "apiKey-label": "API Key",
+      "showPreview-label": "Translation Preview",
+      "showPreview-description": "Show the translation result in the preview pane"
   }
 }

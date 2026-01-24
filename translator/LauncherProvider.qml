@@ -9,6 +9,12 @@ Item {
     property var pluginApi: null
     property var launcher: null
     property string name: "Translator"
+    
+    // Preview support
+    property bool showPreview: pluginApi?.pluginSettings?.showPreview !== undefined ? pluginApi.pluginSettings.showPreview : true
+    readonly property bool hasPreview: showPreview
+    readonly property string previewComponentPath: Qt.resolvedUrl("TranslationPreview.qml")
+
     property var translationCache: ({})
     property var pendingTranslations: ({})
 
@@ -39,9 +45,11 @@ Item {
     }
 
     function getResults(searchText) {
-        if (!searchText.startsWith(">translate")) return [];
+        // Replace whitespace sequences with single spaces
+        var normalizedSearchText = searchText.replace(/\s+/g, " ").trim();
 
-        var parts = searchText.trim().split(" ");
+        if (!normalizedSearchText.startsWith(">translate")) return [];
+        var parts = normalizedSearchText.split(" ");
         if (parts.length <= 1) {
             return getDefaultLanguages().map(function(lang) {
                 return {
@@ -162,7 +170,15 @@ Item {
                 if (xhr.status === 200) {
                     try {
                         var response = JSON.parse(xhr.responseText);
-                        var translatedText = (response && response[0] && response[0][0] && response[0][0][0]) || "";
+                        var translatedText = "";
+                        if (response && response[0]) {
+                            for (var i = 0; i < response[0].length; i++) {
+                                if (response[0][i] && response[0][i][0]) {
+                                    translatedText += response[0][i][0];
+                                }
+                            }
+                        }
+                        
                         if (translatedText) {
                             callback(translatedText, null);
                         } else {
