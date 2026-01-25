@@ -5,7 +5,7 @@
   "minNoctaliaVersion": "4.2.3",
   "author": "dodaars",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/noctalia-dev/noctalia-plugins",
   "description": "A weekly calendar plugin complementing Noctalia's inbuilt calendar service.",
   "tags": ["Bar", "Panel", "Productivity"],
   "entryPoints": {
