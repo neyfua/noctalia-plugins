@@ -87,18 +87,6 @@ Item {
         applyUiScale: false
         color: root.contentColor
       }
-
-      NText {
-        anchors.horizontalCenter: parent.horizontalCenter
-        text: {
-          var textKey = activeCount === 1 ? "bar_widget.todo_count_singular" : "bar_widget.todo_count_plural";
-          var text = pluginApi?.tr(textKey) || (activeCount === 1 ? "{count} todo" : "{count} todos");
-          return text.replace("{count}", activeCount);
-        }
-        color: root.contentColor
-        pointSize: root.barFontSize
-        applyUiScale: false
-      }
     }
   }
 
