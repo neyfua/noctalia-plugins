@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.1] - 2026-01-29
+
+### Changed
+- Replaced `Rectangle` + `MouseArea` with `NIconButton` component
+- Replaced IPC subprocess with direct `pluginApi.mainInstance` call
+- Added proper style properties (border, customRadius, hover colors)
+- Added null-safe operators for multi-monitor support
+
+### Added
+- Context menu with "Toggle Overlay" and "Plugin Settings" options
+- Tooltip showing Steam status
+- Per-screen styling support
+
 ## [2.1.0] - 2026-01-29
 
 ### Removed
