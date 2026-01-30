@@ -17,8 +17,8 @@
   },
   "metadata": {
     "defaultSettings": {
-      "showTempText": true,
-      "showTempLetter": true,
+      "showTempValue": true,
+      "showTempUnit": true,
       "showConditionIcon": true
     }
   }

@@ -9,9 +9,9 @@ ColumnLayout {
 
   property var pluginApi: null
 
-  property bool showTempText: pluginApi?.pluginSettings?.showTempText ?? false
-  property bool showConditionIcon: pluginApi?.pluginSettings?.showConditionIcon ?? false
-  property bool showTempLetter: pluginApi?.pluginSettings?.showTempLetter ?? false
+  property bool showTempValue: pluginApi?.pluginSettings?.showTempValue ?? true
+  property bool showConditionIcon: pluginApi?.pluginSettings?.showConditionIcon ?? true
+  property bool showTempUnit: pluginApi?.pluginSettings?.showTempUnit ?? true
 
   spacing: Style.marginL
 
@@ -26,29 +26,29 @@ ColumnLayout {
     checked: root.showConditionIcon
     onToggled: checked => {
       root.showConditionIcon = checked;
-      root.showTempText = true;
+      root.showTempValue = true;
     }
   }
 
   NToggle {
     id: toggleTempText
-    label: pluginApi?.tr("settings.showTempText.label") || "showTempText"
-    description: pluginApi?.tr("settings.showTempText.desc") || "Show the temperature"
-    checked: root.showTempText
+    label: pluginApi?.tr("settings.showTempValue.label") || "showTempValue"
+    description: pluginApi?.tr("settings.showTempValue.desc") || "Show the temperature"
+    checked: root.showTempValue
     onToggled: checked => {
-      root.showTempText = checked;
+      root.showTempValue = checked;
       root.showConditionIcon = true;
     }
   }
 
   NToggle {
     id: toggleTempLetter
-    label: pluginApi?.tr("settings.showTempLetter.label") || "showTempLetter"
-    description: pluginApi?.tr("settings.showTempLetter.desc") || "Show temperature letter (°F or °C)"
-    checked: root.showTempLetter
-    visible: root.showTempText
+    label: pluginApi?.tr("settings.showTempUnit.label") || "showTempUnit"
+    description: pluginApi?.tr("settings.showTempUnit.desc") || "Show temperature letter (°F or °C)"
+    checked: root.showTempUnit
+    visible: root.showTempValue
     onToggled: checked => {
-      root.showTempLetter = checked;
+      root.showTempUnit = checked;
     }
   }
 
@@ -58,9 +58,9 @@ ColumnLayout {
       return;
     }
 
-    pluginApi.pluginSettings.showTempText = root.showTempText;
+    pluginApi.pluginSettings.showTempValue = root.showTempValue;
     pluginApi.pluginSettings.showConditionIcon = root.showConditionIcon;
-    pluginApi.pluginSettings.showTempLetter = root.showTempLetter;
+    pluginApi.pluginSettings.showTempUnit = root.showTempUnit;
 
     pluginApi.saveSettings();
 

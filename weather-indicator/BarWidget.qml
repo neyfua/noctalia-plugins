@@ -2,8 +2,8 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
-import qs.Widgets
 import qs.Services.Location
+import qs.Widgets
 
 // Bar Widget Component
 Item {
@@ -18,9 +18,9 @@ Item {
   property string section: ""
 
   // Get settings or use false
-  readonly property bool showTempText: pluginApi?.pluginSettings?.showTempText ?? false
-  readonly property bool showConditionIcon: pluginApi?.pluginSettings?.showConditionIcon ?? false
-  readonly property bool showTempLetter: pluginApi?.pluginSettings?.showTempLetter ?? false
+  readonly property bool showTempValue: pluginApi?.pluginSettings?.showTempValue ?? true
+  readonly property bool showConditionIcon: pluginApi?.pluginSettings?.showConditionIcon ?? true
+  readonly property bool showTempUnit: pluginApi?.pluginSettings?.showTempUnit ?? true
 
   // Bar positioning properties
   readonly property string screenName: screen ? screen.name : ""
@@ -45,7 +45,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: root.hovered ? Color.mHover : Style.capsuleColor
+    color:  Style.capsuleColor
     radius: !isVertical ? Style.radiusM : width * 0.5
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
@@ -63,50 +63,36 @@ Item {
         rowSpacing: Style.marginS
         columnSpacing: Style.marginS
 
-            NIcon {
-                visible: root.showConditionIcon
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                icon: weatherReady ? LocationService.weatherSymbolFromCode(LocationService.data.weather.current_weather.weathercode, LocationService.data.weather.current_weather.is_day) : "weather-cloud-off"
-                applyUiScale: true
-                color: root.hovered ? Color.mOnHover : Color.mOnSurface
-            }
-
-            NText {
-                visible: root.showTempText
-                text: {
-                    if (!weatherReady || !root.showTempText) {
-                        return "";
-                    }
-                    var temp = LocationService.data.weather.current_weather.temperature;
-                    var suffix = "°C";
-                    if (Settings.data.location.useFahrenheit) {
-                        temp = LocationService.celsiusToFahrenheit(temp);
-                        var suffix = "°F";
-                    }
-                    temp = Math.round(temp);
-                    if (!root.showTempLetter) {
-                        suffix = "";
-                    }
-                    return `${temp}${suffix}`;
-                }
-                color: root.hovered ? Color.mOnHover : Color.mOnSurface
-                pointSize: root.barFontSize
-                applyUiScale: true
-            }
+        NIcon {
+          visible: root.showConditionIcon
+          Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+          icon: weatherReady ? LocationService.weatherSymbolFromCode(LocationService.data.weather.current_weather.weathercode, LocationService.data.weather.current_weather.is_day) : "weather-cloud-off"
+          applyUiScale: false
+          color: Color.mOnSurface
         }
-    }
-}
 
-  // Mouse area to open panel
-  MouseArea {
-    id: mouseArea
-    anchors.fill: parent
-    hoverEnabled: true
-    cursorShape: Qt.PointingHandCursor
-
-    onClicked: {
-      if (pluginApi) {
-        Logger.i("WeatherIndicator", "Opening Hello World panel");
+        NText {
+          visible: root.showTempValue
+          text: {
+            if (!weatherReady || !root.showTempValue) {
+              return "";
+            }
+            var temp = LocationService.data.weather.current_weather.temperature;
+            var suffix = "°C";
+            if (Settings.data.location.useFahrenheit) {
+              temp = LocationService.celsiusToFahrenheit(temp);
+              var suffix = "°F";
+            }
+            temp = Math.round(temp);
+            if (!root.showTempUnit) {
+              suffix = "";
+            }
+            return `${temp}${suffix}`;
+          }
+          color: Color.mOnSurface
+          pointSize: root.barFontSize
+          applyUiScale: false
+        }
       }
     }
   }
