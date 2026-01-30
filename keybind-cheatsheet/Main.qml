@@ -818,29 +818,34 @@ Item {
     }
   }
 
+  // Refresh function - accessible from mainInstance and IPC
+  function refresh() {
+    logInfo("Refresh called - triggering manual parse");
+    if (pluginApi) {
+      // Reset parser state to allow re-parsing
+      parserStarted = false;
+      isCurrentlyParsing = false;
+      compositor = "";
+      // Re-detect compositor and parse
+      parserStarted = true;
+      detectCompositor();
+    }
+  }
+
   IpcHandler {
     target: "plugin:keybind-cheatsheet"
 
     // Toggle panel visibility (for keybind compatibility)
     function toggle() {
-      if (pluginApi) {
-        const screens = Quickshell.screens;
-        if (screens && screens.length > 0) {
-          pluginApi.togglePanel(screens[0]);
-        }
+      if (root.pluginApi) {
+        root.pluginApi.withCurrentScreen(screen => {
+          root.pluginApi.togglePanel(screen);
+        });
       }
     }
 
     function refresh() {
-      if (pluginApi) {
-        // Reset parser state to allow re-parsing
-        parserStarted = false;
-        isCurrentlyParsing = false;
-        compositor = "";
-        // Re-detect compositor and parse
-        parserStarted = true;
-        detectCompositor();
-      }
+      root.refresh();
     }
   }
 }

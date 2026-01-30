@@ -25,17 +25,6 @@ Item {
   property var categories: processCategories(rawCategories)
   property string compositor: pluginApi?.pluginSettings?.detectedCompositor || ""
 
-  function getConfigName() {
-    // Try environment variable first (for dev setups)
-    var qsConfig = Quickshell.env("QS_CONFIG_NAME");
-    if (qsConfig && qsConfig.length > 0) {
-      return qsConfig;
-    }
-
-    // Default for standard installations
-    return "noctalia-shell";
-  }
-
   // Dynamic column items (up to 4 columns)
   property var columnItems: []
 
@@ -50,11 +39,6 @@ Item {
   Component.onDestruction: {
     // Stop timer to prevent firing after destruction
     columnUpdateDebounce.stop();
-
-    // Stop refresh process if running
-    if (refreshProcess.running) {
-      refreshProcess.running = false;
-    }
 
     // Clear column items
     columnItems = [];
@@ -203,7 +187,7 @@ Item {
         NIconButton {
           icon: "refresh"
           onClicked: {
-            refreshProcess.running = true;
+            pluginApi?.mainInstance?.refresh();
           }
         }
 
@@ -463,11 +447,4 @@ Item {
     return columns;
   }
 
-  // Process to call IPC refresh command
-  // Note: We need to use custom IPC handler since there's no built-in "refresh" action
-  Process {
-    id: refreshProcess
-    command: ["qs", "-c", root.getConfigName(), "ipc", "call", "plugin:keybind-cheatsheet", "refresh"]
-    running: false
-  }
 }
