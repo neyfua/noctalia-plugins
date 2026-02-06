@@ -444,7 +444,7 @@
     {
       "id": "screen-recorder",
       "name": "Screen Recorder",
-      "version": "1.1.5",
+      "version": "1.1.6",
       "official": true,
       "author": "Noctalia Team",
       "description": "Hardware-accelerated screen recording using gpu-screen-recorder with customizable video and audio settings",
@@ -455,7 +455,7 @@
         "Bar",
         "Utility"
       ],
-      "lastUpdated": "2026-02-05T21:04:12-05:00"
+      "lastUpdated": "2026-02-06T16:15:19-05:00"
     },
     {
       "id": "screenshot",
@@ -523,7 +523,7 @@
     {
       "id": "timer",
       "name": "Timer",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "official": true,
       "author": "Noctalia Team",
       "description": "A timer and stopwatch plugin for the bar & control center.",
@@ -534,7 +534,7 @@
         "Bar",
         "Utility"
       ],
-      "lastUpdated": "2026-01-27T01:00:19-05:00"
+      "lastUpdated": "2026-02-06T16:15:19-05:00"
     },
     {
       "id": "todo",
