@@ -16,6 +16,18 @@ Item {
         pluginApi.pluginSettings.active || 
         false
 
+    readonly property bool automation:
+        pluginApi.pluginSettings.automation ||
+        false
+
+    readonly property string automationMode:
+        pluginApi.pluginSettings.automationMode ||
+        "random"
+
+    readonly property real automationTime:
+        pluginApi.pluginSettings.automationTime ||
+        5 * 60
+
     readonly property string currentWallpaper: 
         pluginApi.pluginSettings.currentWallpaper || 
         ""
@@ -76,6 +88,21 @@ Item {
 
     function clear() {
         setWallpaper("");
+    }
+
+    function nextWallpaper() {
+        if (wallpapersFolder === "" || folderModel.count === 0) {
+            Logger.e("mpvpaper", "Empty wallpapers folder or no files found!");
+            return;
+        }
+
+        Logger.d("mpvpaper", "Choosing next wallpaper...");
+
+        // Even if the file is not in wallpapers folder, aka -1, it sets the nextIndex to 0 then
+        const currentIndex = folderModel.indexOf(root.currentWallpaper);
+        const nextIndex = (currentIndex + 1) % folderModel.count;
+        const url = folderModel.get(nextIndex, "filePath");
+        setWallpaper(url);
     }
 
     function setWallpaper(path) {
@@ -147,6 +174,18 @@ Item {
         oldWallpapers: root.oldWallpapers
 
         thumbnails: thumbnails
+    }
+
+    Automation {
+        id: automation
+        pluginApi: root.pluginApi
+
+        automation: root.automation
+        automationMode: root.automationMode
+        automationTime: root.automationTime
+
+        random: root.random
+        nextWallpaper: root.nextWallpaper
     }
 
 

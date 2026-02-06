@@ -55,9 +55,15 @@ ColumnLayout {
         }
         NTabButton {
             enabled: root.active
-            text: "Advanced"
+            text: "Automation"
             tabIndex: 2
             checked: subTabBar.currentIndex === 2
+        }
+        NTabButton {
+            enabled: root.active
+            text: "Advanced"
+            tabIndex: 3
+            checked: subTabBar.currentIndex === 3
         }
     }
 
@@ -73,6 +79,12 @@ ColumnLayout {
 
         AudioTab {
             id: audio
+            pluginApi: root.pluginApi
+            active: root.active
+        }
+
+        AutomationTab {
+            id: automation
             pluginApi: root.pluginApi
             active: root.active
         }
@@ -99,6 +111,7 @@ ColumnLayout {
         playback.saveSettings();
         audio.saveSettings();
         advanced.saveSettings();
+        automation.saveSettings();
 
         pluginApi.saveSettings();
 

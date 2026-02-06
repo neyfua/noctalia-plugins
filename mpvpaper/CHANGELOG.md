@@ -6,6 +6,7 @@ Here I'll try to document all changes for the mpvpaper plugin.
 
 - feat: Added the ability to set the mpv profile, there is a fast profile for better optimization.
 - feat: Added the ability to enable hardware acceleration for less cpu usage.
+- feat: Added support for setting up automatic wallpaper change.
 - fix: Fixed so that the thumbnails don't regenerate every time the shell is restarted.
 - fix: Reformatted a lot of the code to make the code more readable.
 

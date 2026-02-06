@@ -70,6 +70,26 @@
       "high_quality": "High Quality",
       "low_latency": "Low Latency"
     },
+    "automation": {
+      "label": "Automation",
+      "description": "Schedule automatic wallpaper change."
+    },
+    "automation_mode": {
+      "label": "Change mode",
+      "description": "The mode to select the new wallpaper.",
+      "random": "Random",
+      "alphabetically": "Alphabetically"
+    },
+    "automation_time": {
+      "label": "Time",
+      "description": "How long it should take to switch the wallpaper.",
+      "5m": "5m",
+      "10m": "10m",
+      "30m": "30m",
+      "1h": "1h",
+      "1h30m": "1h 30m",
+      "2h": "2h"
+    },
     "actions": {
       "random": {
         "text": "Random",
