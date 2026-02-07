@@ -54,4 +54,8 @@ Item {
             WallpaperService.changeWallpaper(WallpaperService.noctaliaDefaultWallpaper, undefined);
         }
     }
+
+    Component.onDestruction: {
+        applyOldWallpapers();
+    }
 }

@@ -18,10 +18,12 @@ Variants {
     /***************************
     * PROPERTIES
     ***************************/
-    required property string currentWallpaper 
-    required property bool enabled 
+    required property string currentWallpaper
+    required property bool enabled
+    required property int fillMode
     required property bool isPlaying
     required property bool isMuted
+    required property int orientation
     required property real volume
 
     required property Thumbnails thumbnails
@@ -87,19 +89,25 @@ Variants {
                 id: videoWallpaper
                 anchors.fill: parent
                 autoPlay: true
-                loops: MediaPlayer.Infinite
-                source: {
-                    if(root.currentWallpaper == "") return ""
-                    else if (root.currentWallpaper.startsWith("file://")) return root.currentWallpaper
-                    else return `file://${root.currentWallpaper}`
+                fillMode: {
+                    if(root.fillMode == 1) return VideoOutput.PreserveAspectFit
+                    else if (root.fillMode == 2) return VideoOutput.PreserveAspectCrop
+                    else return VideoOutput.Stretch
                 }
+                loops: MediaPlayer.Infinite
                 muted: root.isMuted
-                volume: root.volume
+                orientation: root.orientation
                 playbackRate: {
                     if(root.isPlaying) return 1.0
                     // Pausing is the same as putting the speed to veryyyyyyy tiny amount
                     else return 0.00000001
                 }
+                source: {
+                    if(root.currentWallpaper == "") return ""
+                    else if (root.currentWallpaper.startsWith("file://")) return root.currentWallpaper
+                    else return `file://${root.currentWallpaper}`
+                }
+                volume: root.volume
 
                 onErrorOccurred: (error, errorString) => {
                     Logger.e("video-wallpaper", errorString);

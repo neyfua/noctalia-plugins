@@ -31,6 +31,10 @@ Item {
         pluginApi.pluginSettings.enabled || 
         false
 
+    readonly property int fillMode:
+        pluginApi.pluginSettings.fillMode ||
+        0
+
     readonly property bool isMuted:
         pluginApi.pluginSettings.isMuted ||
         false
@@ -42,6 +46,10 @@ Item {
     readonly property var oldWallpapers:
         pluginApi.pluginSettings.oldWallpapers || 
         ({})
+
+    readonly property int orientation:
+        pluginApi.pluginSettings.orientation ||
+        0
 
     readonly property bool thumbCacheReady:
         pluginApi.pluginSettings.thumbCacheReady ||
@@ -132,8 +140,10 @@ Item {
         pluginApi: root.pluginApi
         currentWallpaper: root.currentWallpaper
         enabled: root.enabled
+        fillMode: root.fillMode
         isPlaying: root.isPlaying
         isMuted: root.isMuted
+        orientation: root.orientation
         volume: root.volume
 
         thumbnails: thumbnails

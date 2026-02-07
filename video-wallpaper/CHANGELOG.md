@@ -2,6 +2,12 @@
 
 Here I'll try to document all changes for the video-wallpaper plugin.
 
+## 1.1.0 - 2026-02-07
+
+- feat: Added control of the fill mode.
+- feat: Added control of the orientation.
+- feat: Added settings button in the bar widget.
+
 ## 1.0.0 - Initial commit
 
 - feat: Moved over from mpvpaper to this plugin.

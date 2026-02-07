@@ -37,8 +37,10 @@ Item {
                 "icon": "rectangle"
             },
             {
-                "label": root.pluginApi?.tr("barWidget.contextMenu.toggle") || "Toggle",
-                "action": "toggle",
+                "label": root.enabled ?
+                    root.pluginApi?.tr("barWidget.contextMenu.disable") || "Disable" :
+                    root.pluginApi?.tr("barWidget.contextMenu.enable") || "Enable",
+                "action": root.enabled ? "disable" : "enable",
                 "icon": "power"
             },
             {
@@ -54,6 +56,11 @@ Item {
                     root.pluginApi?.tr("barWidget.contextMenu.mute") || "Mute",
                 "action": root.isMuted ? "unmute" : "mute",
                 "icon": root.isMuted ? "volume-high" : "volume-mute"
+            },
+            {
+                "label": I18n.tr("actions.widget-settings"),
+                "action": "settings",
+                "icon": "settings"
             }
         ]
 
@@ -65,8 +72,12 @@ Item {
                 case "panel":
                     root.pluginApi?.openPanel(root.screen, root);
                     break;
-                case "toggle":
-                    root.pluginApi.pluginSettings.enabled = !root.enabled;
+                case "enable":
+                    root.pluginApi.pluginSettings.enabled = true;
+                    root.pluginApi.saveSettings();
+                    break;
+                case "disable":
+                    root.pluginApi.pluginSettings.enabled = false;
                     root.pluginApi.saveSettings();
                     break;
                 case "play":
@@ -84,6 +95,9 @@ Item {
                 case "unmute":
                     root.pluginApi.pluginSettings.isMuted = false;
                     root.pluginApi.saveSettings();
+                    break;
+                    case "settings":
+                    BarService.openPluginSettings(root.screen, pluginApi.manifest);
                     break;
                 default:
                     Logger.e("video-wallpaper", "Error, action not found:", action);

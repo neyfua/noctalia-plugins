@@ -43,8 +43,6 @@ Item {
         "~/Pictures/Wallpapers"
 
 
-    anchors.fill: parent
-
     Rectangle {
         id: panelContainer
         anchors.fill: parent
@@ -94,6 +92,17 @@ Item {
                     tooltipText: root.pluginApi?.tr("panel.tool_row.refresh.tooltip") || "Refresh thumbnails, remove old ones and create new ones."
 
                     onClicked: root.pluginApi?.mainInstance.thumbRegenerate();
+                }
+
+                NToggle {
+                    label: "Enabled"
+
+                    checked: root.enabled
+                    onToggled: checked => {
+                        if(root.pluginApi == null) return;
+                        root.pluginApi.pluginSettings.enabled = checked;
+                        root.pluginApi.saveSettings();
+                    }
                 }
             }
 
