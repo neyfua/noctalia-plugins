@@ -24,6 +24,7 @@ Item {
     /***************************
     * PROPERTIES
     ***************************/
+    readonly property string activeBackend:    pluginApi?.pluginSettings?.activeBackend    || pluginApi?.manifest?.metadata?.defaultSettings?.activeBackend    || ""
     readonly property string currentWallpaper: pluginApi?.pluginSettings?.currentWallpaper || ""
     readonly property bool   enabled:          pluginApi?.pluginSettings?.enabled          || false
     readonly property bool   thumbCacheReady:  pluginApi?.pluginSettings?.thumbCacheReady  || false
@@ -108,6 +109,14 @@ Item {
                         root.pluginApi.pluginSettings.enabled = checked;
                         root.pluginApi.saveSettings();
                     }
+                }
+
+                Item {
+                    Layout.fillWidth: true
+                }
+
+                NLabel {
+                    label: `Using: ${root.activeBackend}`
                 }
             }
 
