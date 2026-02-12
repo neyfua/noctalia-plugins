@@ -36,6 +36,12 @@
       "label": "Enable mpvpaper",
       "description": "Enable the mpvpaper integration"
     },
+    "tab_bar": {
+      "playback": "Playback",
+      "audio": "Audio",
+      "automation": "Automation",
+      "advanced": "Advanced"
+    },
     "wallpapers_folder": {
       "title_label": "Wallpapers Folder",
       "title_description": "The folder that contains all the wallpapers, useful when using random wallpaper",

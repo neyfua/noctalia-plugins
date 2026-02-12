@@ -2,6 +2,11 @@
 
 Here I'll try to document all changes for the mpvpaper plugin.
 
+## 1.6.2 - 2026-02-09
+
+- i18n: Added german translations
+- feat/i18n: Added translations for NTabButtons
+
 ## 1.6.1 - 2026-02-07
 
 - feat: Added the ability to set the fill mode.
